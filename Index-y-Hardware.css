@@ -1,0 +1,288 @@
+/* 
+   Este es el css del index.
+   Sus colores principales son negro, gris oscuro, gris claro, y blanco.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* estilo global para imagenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* titulos */
+h1,
+h2,
+h3,
+h4 {
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 35px;
+    margin-top: 24px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+p {
+    color: #a0a0a0;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* para centrar el contenido de la pagina */
+.caja {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+main {
+    padding-top: 100px;
+}
+
+section {
+    padding: 40px 0;
+    position: relative;
+}
+
+/* barra de navegacion */
+.barra-arriba {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 0;
+    background: rgba(5, 5, 5, 0.95);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.barra-arriba .caja {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.enlaces-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.enlaces-menu a {
+    text-decoration: none;
+    color: #a0a0a0;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.enlaces-menu a:hover,
+.enlaces-menu a.activo {
+    color: #ffffff;
+}
+
+/* tarjetas */
+.cuadricula-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.tarjeta-cristal {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-cristal:hover {
+    transform: translateY(-8px);
+    background: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* botones */
+.boton {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #ffffff;
+    color: #050505;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 16px;
+}
+
+/* imagenes */
+.caja-diagrama {
+    width: 100%;
+    margin: 32px 0;
+    border-radius: 12px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.espacio-diagrama {
+    width: 100%;
+    min-height: 400px;
+    background: #151515;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #a0a0a0;
+    padding: 12px 12px;
+}
+
+.espacio-diagrama img {
+    max-height: 100%;
+}
+
+.pie-diagrama {
+    width: 100%;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 13px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* footer */
+footer {
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 14px;
+}
+
+/* portada */
+.cuadricula-portada {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.imagen-portada {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-portada img {
+    max-height: 500px;
+}
+
+
+/* clases extras para secciones */
+
+.tarjeta-intro {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.grid-dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    align-items: center;
+}
+
+.titulo-ajustado {
+    margin-bottom: 16px;
+}
+
+.parrafo-grande {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.lista-intro {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #a0a0a0;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
+.parrafo-espaciado {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 24px;
+}
+
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.subtitulo-tarjeta {
+    margin-top: 24px;
+    font-size: 18px;
+}
+
+.lista-gris {
+    line-height: 1.8;
+    color: #a0a0a0;
+}
+
+.parrafo-margen {
+    margin-top: 16px;
+}
+
+.grid-margen {
+    margin-top: 32px;
+}
+
+.texto-portada-grande {
+    font-size: 24px;
+    max-width: 600px;
+}
