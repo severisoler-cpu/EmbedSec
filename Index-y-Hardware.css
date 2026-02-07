@@ -160,6 +160,7 @@ section {
     border-radius: 12px;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
 .espacio-diagrama {
@@ -179,7 +180,6 @@ section {
 }
 
 .pie-diagrama {
-    width: 100%;
     padding: 16px;
     background: rgba(0, 0, 0, 0.7);
     font-size: 13px;
