@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmbedSec | Hardware</title>
+    <link rel="stylesheet" href="Index-y-Hardware.css">
+</head>
+
+<body>
+    <!-- barra de navegación -->
+    <nav class="barra-arriba">
+        <div class="caja">
+            <a href="index.html" class="logo">EmbedSec</a>
+            <div class="enlaces-menu">
+                <a href="index.html" class="activo">Hardware</a>
+                <a href="#">Firmware</a>
+                <a href="#">WiFi</a>
+                <a href="#">Bluetooth</a>
+                <a href="#">Sub-GHz</a>
+                <a href="#">Defensa</a>
+                <!-- como las 4 últimas páginas son futuras, no se ha puesto el enlace -->
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- portada -->
+        <section>
+            <div class="caja cuadricula-portada">
+                <div class="texto-portada">
+                    <h1>Mini guia de ciberseguridad:<br>Auditoría IoT de Bolsillo</h1>
+                    <p class=" texto-portada-grande">
+                        Mini guia de la definitiva para la investigación de seguridad en redes inalámbricas.
+                        Compacta. Potente. Sigilosa.
+                    </p>
+                    <a href="#info" class="boton">DESCUBRIR HARDWARE</a>
+                </div>
+                <div class="imagen-portada">
+                    <img src="images/t-embed-hero.png" alt="LilyGO T-Embed">
+                </div>
+            </div>
+        </section>
+
+        <!-- introduccion de la guia -->
+        <section>
+            <div class="caja">
+                <div class="tarjeta-cristal tarjeta-intro">
+                    <div class="grid-dos-columnas">
+                        <!-- texto de la izquierda -->
+                        <div>
+                            <h2 class="titulo-ajustado">¿De qué va esta guía?</h2>
+                            <p class="parrafo-grande">
+                                Esta es una mini guía sobre <strong>auditoría de seguridad en redes
+                                    inalámbricas</strong> usando
+                                hardware de bolsillo. En concreto, vamos a hablar del <strong>LilyGO T-Embed con
+                                    ESP32-S3</strong>,
+                                un dispositivo pequeño y barato que, con el firmware correcto, se convierte en una
+                                herramienta
+                                muy potente para hacer pruebas de penetración en WiFi, Bluetooth y radiofrecuencias
+                                Sub-GHz.
+                            </p>
+                            <p class="parrafo-grande">
+                                La guía está dividida en tres partes principales:
+                            </p>
+                            <ul class="lista-intro">
+                                <li><strong>El Hardware:</strong> Qué componentes lleva y por qué son importantes</li>
+                                <li><strong>El Firmware:</strong> El software que le da vida al dispositivo</li>
+                                <li><strong>Los Ataques:</strong> Qué se puede hacer con todo esto (WiFi, Bluetooth,
+                                    Sub-GHz)</li>
+                            </ul>
+                            <p class="parrafo-espaciado">
+                                A continuación vamos a desglosar los componentes principales del dispositivo para
+                                entender
+                                cómo funciona por dentro. Empezamos por el cerebro del sistema: el chip ESP32-S3.
+                            </p>
+                        </div>
+
+                        <!-- imagen de la de la descripcion de la guia -->
+                        <div class="contenedor-imagen">
+                            <img src="images/t-embed-intro.png" alt="LilyGO T-Embed dispositivo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- seccion hardware -->
+        <section id="info">
+            <div class="caja">
+                <!-- titulo de la seccion -->
+                <h2 class="titulo-seccion">Hardware del Dispositivo</h2>
+
+                <div class="cuadricula-tarjetas" style="grid-template-columns: 1fr;">
+                    <div class="tarjeta-cristal">
+                        <h3>1. Microcontrolador ESP32-S3</h3>
+                        <p>El ESP32-S3 es un SoC (System on Chip) de última generación fabricado por Espressif Systems.
+                            Se trata de un microcontrolador de doble núcleo basado en la arquitectura Xtensa LX7 de 32
+                            bits, con una frecuencia de reloj de hasta 240MHz.</p>
+
+                        <h4 class="subtitulo-tarjeta">Especificaciones Técnicas:</h4>
+                        <ul class="lista-gris">
+                            <li><strong>CPU:</strong> Dual-core Xtensa LX7 a 240MHz con capacidad de procesamiento
+                                vectorial</li>
+                            <li><strong>Memoria RAM:</strong> 512KB SRAM interna para datos y programas</li>
+                            <li><strong>Memoria Flash:</strong> Soporta hasta 16MB de memoria flash externa</li>
+                            <li><strong>Conectividad WiFi:</strong> IEEE 802.11 b/g/n en banda de 2.4GHz, con soporte
+                                para WPA/WPA2/WPA3</li>
+                            <li><strong>Bluetooth:</strong> Bluetooth 5.0 (LE) con Bluetooth Mesh y alcance extendido
+                            </li>
+                            <li><strong>Periféricos:</strong> 45 GPIO programables, SPI, I2C, UART, ADC de 12 bits, DAC,
+                                PWM</li>
+                        </ul>
+
+                        <h4 class="subtitulo-tarjeta">Ventajas para Seguridad Inalámbrica:</h4>
+                        <p>El ESP32-S3 integra las capacidades de comunicación inalámbrica directamente en el chip, lo
+                            que permite interceptar, analizar y transmitir señales WiFi y Bluetooth sin necesidad de
+                            hardware adicional. Su arquitectura de doble núcleo permite ejecutar tareas de
+                            monitorización y procesamiento en paralelo, fundamental para ataques en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- seccion placa y componentes -->
+        <section>
+            <div class="caja">
+                <h2>2. Placa LilyGO T-Embed</h2>
+                <p>La placa LilyGO T-Embed es una placa de desarrollo compacta específicamente diseñada
+                    para aplicaciones IoT y proyectos de seguridad portátiles. Integra el ESP32-S3 junto con múltiples
+                    periféricos que la convierten en una plataforma autónoma para pentesting inalámbrico.</p>
+
+                <div class="cuadricula-tarjetas">
+                    <div class="tarjeta-cristal">
+                        <h4>Pantalla LCD Integrada</h4>
+                        <ul class="lista-gris">
+                            <li><strong>Tipo:</strong> TFT LCD a color de 1.9 pulgadas</li>
+                            <li><strong>Resolución:</strong> 170×320 píxeles</li>
+                            <li><strong>Controlador:</strong> ST7789V con interfaz SPI</li>
+                            <li><strong>Función:</strong> Visualización de menús, resultados de escaneos, captura de
+                                paquetes y estado del sistema en tiempo real</li>
+                        </ul>
+                        <p class="parrafo-margen">La pantalla permite operar el dispositivo de forma autónoma sin
+                            necesidad de conectarlo a un ordenador, ideal para auditorías en campo.</p>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <h4>Control de Usuario</h4>
+                        <ul class="lista-gris">
+                            <li><strong>Encoder Rotatorio:</strong> Permite navegación rápida por menús con pulsación
+                                integrada para selección</li>
+                            <li><strong>Botones Físicos:</strong> 2 botones programables para acciones rápidas</li>
+                            <li><strong>LED RGB:</strong> Indicadores de estado visual (escaneo activo, ataque en curso,
+                                etc.)</li>
+                        </ul>
+                        <p class="parrafo-margen">La interfaz física está optimizada para uso con una sola mano,
+                            facilitando operaciones discretas.</p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-tarjetas grid-margen">
+                    <div class="tarjeta-cristal">
+                        <h4>Gestión de Energía</h4>
+                        <ul class="lista-gris">
+                            <li><strong>Batería:</strong> Conector JST para baterías Li-Po de 3.7V (300-1000mAh)</li>
+                            <li><strong>Carga:</strong> Circuito de carga integrado vía USB-C</li>
+                            <li><strong>Autonomía:</strong> Entre 2-6 horas según uso (escaneo pasivo vs ataques
+                                activos)</li>
+                            <li><strong>Regulador:</strong> Regulador de voltaje de 3.3V para alimentación estable</li>
+                        </ul>
+                        <p class="parrafo-margen">La autonomía permite realizar auditorías completas sin depender de
+                            fuentes de alimentación externas.</p>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <h4>Expansión y Conectividad</h4>
+                        <ul class="lista-gris">
+                            <li><strong>Puertos GPIO:</strong> Acceso directo a pines I2C, SPI y UART</li>
+                            <li><strong>Slot MicroSD:</strong> Almacenamiento externo para logs, capturas PCAP y
+                                payloads</li>
+                            <li><strong>USB-C:</strong> Programación, alimentación y comunicación serial</li>
+                            <li><strong>Módulos Externos:</strong> Compatibilidad con CC1101 (Sub-GHz), NRF24L01
+                                (2.4GHz), PN532 (NFC/RFID)</li>
+                        </ul>
+                        <p class="parrafo-margen">Los puertos de expansión permiten añadir capacidades para
+                            frecuencias adicionales más allá de WiFi y Bluetooth, como ataques a mandos de garaje
+                            (433MHz), señales ISM o sistemas RFID.</p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-tarjetas grid-margen">
+                    <div class="tarjeta-cristal">
+                        <h4>Audio</h4>
+                        <p><strong>Micrófono MEMS:</strong> Captura de audio ambiente para análisis de seguridad física
+                            o grabación de conversaciones cercanas a puntos de acceso.</p>
+                        <p class="parrafo-margen"><strong>Altavoz Piezoeléctrico:</strong> Feedback auditivo de
+                            acciones (beeps de confirmación, alertas) y reproducción de tonos para ataques de ingeniería
+                            social.</p>
+                    </div>
+                </div>
+
+                <!-- diagrama (foto real) del T-embed sin carcasa -->
+                <div class="caja-diagrama">
+                    <div class="espacio-diagrama">
+                        <img src="images/t-embed-pcb.png" alt="T-Embed PCB Vista Interna">
+
+                    </div>
+                    <div class="pie-diagrama">Arquitectura interna del LilyGO T-Embed - Vista del PCB
+                        mostrando el ESP32-S3, módulos de conectividad, circuitos de alimentación y puertos de expansión
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de pagina -->
+    <footer>
+        <div class="caja">
+            <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
