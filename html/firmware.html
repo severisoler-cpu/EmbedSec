@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmbedSec | Firmware</title>
+    <!-- ruta relativa a la carpeta css -->
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <!-- barra de navegación -->
+    <nav class="barra-arriba">
+        <div class="caja">
+            <a href="Index-y-Hardware.html" class="logo">EmbedSec</a>
+            <div class="enlaces-menu">
+                <a href="index.html">Hardware</a>
+                <a href="firmware.html" class="activo">Firmware</a>
+                <a href="#">WiFi</a>
+                <a href="#">Bluetooth</a>
+                <a href="#">Sub-GHz</a>
+                <a href="#">Defensa</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- encabezado firmware -->
+        <section>
+            <div class="caja">
+                <!-- enlace al repositorio oficial -->
+                <h1>Firmware Bruce</h1>
+                <p class="parrafo-grande">
+                    El "cerebro" del dispositivo. Bruce es un firmware de código abierto basado en MicroPython y C++
+                    diseñado para
+                    convertir el ESP32 en una herramienta versátil de auditoría de seguridad.
+                </p>
+
+                <div class="tarjeta-cristal tarjeta-github">
+                    <div class="grid-dos-columnas">
+                        <div class="info-github">
+                            <h2>Repositorio Oficial</h2>
+                            <p>Bruce se mantiene activamente en GitHub. Aquí puedes descargar la última versión binaria,
+                                ver el código fuente o contribuir al proyecto.</p>
+                            <a href="https://github.com/BruceDevices/firmware" target="_blank"
+                                class="boton boton-github">
+                                Ir al GitHub Oficial 🔗
+                            </a>
+                        </div>
+                        <div class="logo-github-contenedor">
+                            <img src="../images/LogoBruce.png" alt="Logo Bruce Firmware" class="logo-bruce">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARACTERISTICAS DE BRUCE -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Características del Firmware Bruce</h2>
+
+                <div class="tarjeta-cristal">
+                    <h3>¿Qué hace Bruce?</h3>
+                    <p class="parrafo-grande">
+                        <strong>Bruce</strong> transforma tu T-Embed en una suite completa de herramientas de pentesting
+                        inalámbrico.
+                        Desarrollado por la comunidad, integra múltiples funcionalidades que normalmente requerirían
+                        varios
+                        dispositivos diferentes.
+                    </p>
+
+                    <h4 class="subtitulo-tarjeta">Módulos Principales:</h4>
+                    <div class="cuadricula-tarjetas">
+                        <!-- Tarjeta WiFi -->
+                        <div class="tarjeta-cristal">
+                            <div class="icono-svg">
+                                <!-- Icono "wifi" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                                    <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                                </svg>
+                            </div>
+                            <h4>WiFi Arsenal</h4>
+                            <ul class="lista-gris">
+                                <li>Escaneo de redes y puntos de acceso</li>
+                                <li>Ataque de Deautenticación (Deauth)</li>
+                                <li>Beacon Spam (inundación de SSIDs)</li>
+                                <li>Análisis de paquetes en tiempo real</li>
+                                <li>Captura de handshakes WPA/WPA2</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tarjeta Bluetooth -->
+                        <div class="tarjeta-cristal">
+                            <div class="icono-svg">
+                                <!-- Icono "bluetooth" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
+                                </svg>
+                            </div>
+                            <h4>Bluetooth Testing</h4>
+                            <ul class="lista-gris">
+                                <li>Escaneo BLE (Low Energy)</li>
+                                <li>Sniffing de dispositivos Classic</li>
+                                <li>Spoofing de identidad Bluetooth</li>
+                                <li>Detección de beacons ocultos</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tarjeta Sub-GHz -->
+                        <div class="tarjeta-cristal">
+                            <div class="icono-svg">
+                                <!-- Icono "bar-chart" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 12h2"></path>
+                                    <path d="M6 12v3"></path>
+                                    <path d="M10 9v6"></path>
+                                    <path d="M14 6v9"></path>
+                                    <path d="M18 12v3"></path>
+                                    <path d="M22 12h-2"></path>
+                                </svg>
+                            </div>
+                            <h4>Sub-GHz & RF</h4>
+                            <ul class="lista-gris">
+                                <li>Análisis de señales 315/433/868 MHz</li>
+                                <li>Grabación y reproducción de señales</li>
+                                <li>Clonación de mandos a distancia</li>
+                                <li>Jamming de frecuencias ISM</li>
+                            </ul>
+                            <p class="nota-requisito">Requiere módulo CC1101 externo</p>
+                        </div>
+
+                        <!-- Tarjeta NFC -->
+                        <div class="tarjeta-cristal">
+                            <div class="icono-svg">
+                                <!-- Icono "credit-card" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                                </svg>
+                            </div>
+                            <h4>NFC/RFID</h4>
+                            <ul class="lista-gris">
+                                <li>Lectura de tarjetas Mifare/NTAG</li>
+                                <li>Clonación de tarjetas RFID</li>
+                                <li>Emulación de tags NFC</li>
+                                <li>Ataque de fuerza bruta a claves</li>
+                            </ul>
+                            <p class="nota-requisito">Requiere módulo PN532 externo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla Comparativa de Firmwares -->
+                <div class="tarjeta-cristal margen-arriba">
+                    <h3>Comparativa de Firmwares</h3>
+                    <div class="contenedor-scroll-horizontal">
+                        <table class="tabla-comparativa">
+                            <thead>
+                                <tr>
+                                    <th>Firmware</th>
+                                    <th>WiFi</th>
+                                    <th>Bluetooth</th>
+                                    <th>Sub-GHz</th>
+                                    <th>NFC</th>
+                                    <th>Interfaz</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Bruce</strong></td>
+                                    <td>Completo</td>
+                                    <td>BLE + Classic</td>
+                                    <td>Si (CC1101)</td>
+                                    <td>Si (PN532)</td>
+                                    <td>TFT + Encoder</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Marauder</strong></td>
+                                    <td>Avanzado</td>
+                                    <td>BLE</td>
+                                    <td>No</td>
+                                    <td>No</td>
+                                    <td>CLI + TFT</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nemo</strong></td>
+                                    <td>Básico</td>
+                                    <td>BLE</td>
+                                    <td>Limitado</td>
+                                    <td>No</td>
+                                    <td>TFT Básico</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION: CASOS DE USO -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Casos de Uso Prácticos</h2>
+
+                <div class="cuadricula-tarjetas">
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "search" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <h3>Auditoría WiFi</h3>
+                        <p>Evalúa la seguridad de tu propia red identificando puntos débiles, dispositivos no
+                            autorizados y configuraciones inseguras.</p>
+                        <ul class="lista-gris">
+                            <li>Detección de redes ocultas</li>
+                            <li>Análisis de canales</li>
+                            <li>Identificación de clientes</li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "shield" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Pentesting Bluetooth</h3>
+                        <p>Descubre vulnerabilidades en IoT, wearables y sistemas de audio.</p>
+                        <ul class="lista-gris">
+                            <li>Enumeración de servicios BLE</li>
+                            <li>Detección de beacons</li>
+                            <li>Test de emparejamiento</li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "activity" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Análisis RF</h3>
+                        <p>Estudia el espectro radioeléctrico para identificar dispositivos de domótica y alarmas.</p>
+                        <ul class="lista-gris">
+                            <li>Captura de señales</li>
+                            <li>Análisis de protocolos ISM</li>
+                            <li>Replay attacks (simulados)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "book" modificado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10v6M12 2l10 5-10 5L2 7l10-5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Educación</h3>
+                        <p>Herramienta perfecta para mostrar conceptos abstractos de forma visual e interactiva.</p>
+                        <ul class="lista-gris">
+                            <li>Demostraciones en vivo</li>
+                            <li>Laboratorio portátil</li>
+                            <li>Aprendizaje práctico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION: LEGAL Y ETICA -->
+        <section>
+            <div class="caja">
+                <div class="tarjeta-cristal borde-atencion">
+                    <div class="cabecera-atencion">
+                        <div class="icono-svg">
+                            <!-- Icono "alert-triangle" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h2>Aviso Legal y Uso Responsable</h2>
+                    </div>
+
+                    <div class="contenido-legal">
+                        <p class="parrafo-destacado">
+                            El contenido de esta guía tiene ÚNICAMENTE fines educativos y de investigación en seguridad.
+                        </p>
+
+                        <div class="grid-dos-columnas">
+                            <div>
+                                <h4>Prohibido</h4>
+                                <ul class="lista-gris">
+                                    <li>Ataques a redes ajenas sin permiso</li>
+                                    <li>Interferencia de comunicaciones</li>
+                                    <li>Acceso no autorizado</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Permitido</h4>
+                                <ul class="lista-gris">
+                                    <li>Auditorías de redes propias</li>
+                                    <li>Pentesting autorizado</li>
+                                    <li>Educación en entornos controlados</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="parrafo-legal-small">
+                            <strong>Legislación:</strong> El acceso no autorizado a sistemas informáticos es delito
+                            (Art. 197 CP).
+                            El desconocimiento de la ley NO exime de responsabilidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION: RECURSOS -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Recursos y Enlaces</h2>
+
+                <div class="cuadricula-tarjetas">
+                    <div class="tarjeta-cristal">
+                        <h3>Documentación</h3>
+                        <ul class="lista-enlaces">
+                            <li><a href="https://github.com/pr3y/Bruce" target="_blank">Bruce Firmware - GitHub</a></li>
+                            <li><a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank">ESP32
+                                    Marauder</a></li>
+                            <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/"
+                                    target="_blank">ESP32-S3 Datasheet</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <h3>Herramientas</h3>
+                        <ul class="lista-enlaces">
+                            <li><a href="https://www.wireshark.org/" target="_blank">Wireshark</a></li>
+                            <li><a href="https://www.aircrack-ng.org/" target="_blank">Aircrack-ng</a></li>
+                            <li><a href="https://github.com/FlipperZeroHackingKit" target="_blank">Flipper Zero
+                                    Tools</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <h3>Comunidad</h3>
+                        <ul class="lista-enlaces">
+                            <li><a href="#" class="desactivado">Discord de Bruce</a></li>
+                            <li><a href="https://www.reddit.com/r/esp32/" target="_blank">r/ESP32</a></li>
+                            <li><a href="https://www.reddit.com/r/hacking/" target="_blank">r/Hacking</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- simulador de menu (se ha seguido un tutorial para la realización de este apartado, ya que se encuentra fuera del temario, pero es una buena idea añadirlo) -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Simulador de Interfaz</h2>
+                <p class="parrafo-centrado-offset">
+                    Así se ve el menú principal de Bruce en la pantalla del T-Embed. <br>
+                    <strong>¡Pruébalo!</strong> Toca en la rueda para navegar.
+                </p>
+
+                <!-- Contenedor del simulador (con comentarios extra para facilitar futuros cambios, si los hubiera)-->
+                <div class="simulador-contenedor">
+                    <div class="dispositivo-real">
+                        <!-- Imagen de fondo del dispositivo -->
+                        <img src="../images/LILYGO-T-Embed-User-product-image.png" alt="T-Embed Real"
+                            class="imagen-fondo-tembed">
+
+                        <!-- La pantalla encendida - INTERACTIVA CON JS -->
+                        <div class="pantalla-bruce pantalla-superpuesta">
+                            <!-- Barra estado común -->
+                            <div class="barra-estado">
+                                <span class="texto-negrita">Bruce</span>
+                                <span class="bateria">100% 🔋</span>
+                            </div>
+
+                            <!-- VISTA 1: HOME (Carrusel) -->
+                            <div id="pantalla-home" class="menu-carrusel">
+                                <!-- Flechas absolutas (SVG inyectado por JS) -->
+                                <div class="flecha-nav izq"></div>
+                                <div class="flecha-nav der"></div>
+
+                                <!-- Icono central -->
+                                <div class="icono-grande" id="home-icono">
+                                    <!-- SVG inyectado por JS -->
+                                </div>
+
+                                <!-- Titulo -->
+                                <div class="titulo-icono" id="home-titulo">WiFi</div>
+                            </div>
+
+                            <!-- VISTA 2: LISTA (Submenú) -->
+                            <!-- Oculto por defecto con la clase .oculto -->
+                            <div id="pantalla-lista" class="menu-lista oculto">
+                                <div class="menu-caja" id="lista-opciones">
+                                    <!-- El JS inyectará las opciones aquí -->
+                                </div>
+                            </div>
+
+                            <!-- VISTA 3: TERMINAL (Acción en curso) -->
+                            <div id="pantalla-terminal" class="pantalla-terminal oculto">
+                                <div class="terminal-header" id="terminal-titulo">ACTION...</div>
+                                <div class="terminal-log" id="terminal-log">
+                                    <!-- Logs sumilados JS -->
+                                </div>
+                            </div>
+
+                            <!-- Pie de página -->
+                            <div class="pie-pantalla" id="pie-texto">
+                                <span>OK: Select</span>
+                            </div>
+                        </div>
+
+                        <!-- Zonas táctiles invisibles sobre el encoder (la rueda) -->
+                        <div class="zona-click zona-arriba" onclick="handleInput('UP')" title="Subir (Girar izquierda)">
+                        </div>
+                        <div class="zona-click zona-abajo" onclick="handleInput('DOWN')" title="Bajar (Girar derecha)">
+                        </div>
+                        <div class="zona-click zona-centro" onclick="handleInput('ENTER')" title="OK (Pulsar)"></div>
+                    </div>
+                </div>
+
+                <p class="parrafo-instrucciones">
+                    (Haz clic en la parte superior/inferior de la rueda para moverte, y en el centro para aceptar, o usa
+                    las flechas del teclado y la tecla enter)
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de pagina -->
+    <footer>
+        <div class="caja">
+            <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
+        </div>
+    </footer>
+
+    <!-- Script del simulador -->
+    <script src="../js/simulador.js"></script>
+</body>
+
+</html>

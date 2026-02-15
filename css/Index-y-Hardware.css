@@ -1,10 +1,7 @@
-/* 
-   Este es el css del index.
-   Sus colores principales son negro, gris oscuro, gris claro, y blanco.
-*/
+/* CSS del proyecto EmbedSec - Colores: negro, gris oscuro, gris claro, blanco */
 
+/* Importar fuente Inter desde Google Fonts (copiado de fonts.google.com) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-
 
 body {
     background-color: #050505;
@@ -13,31 +10,28 @@ body {
     line-height: 1.6;
 }
 
-/* estilo global para imagenes */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* titulos */
 h1,
 h2,
 h3,
 h4 {
     color: #ffffff;
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 h1 {
     font-size: 56px;
     line-height: 1.1;
-    color: #ffffff;
 }
 
 h2 {
     font-size: 35px;
-    margin-top: 24px;
+    margin-top: 25px;
 }
 
 h3 {
@@ -50,16 +44,15 @@ h4 {
 
 p {
     color: #a0a0a0;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
     font-size: 18px;
     font-weight: 300;
 }
 
-/* para centrar el contenido de la pagina */
 .caja {
-    max-width: 1200px;
+    max-width: 1195px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 30px;
 }
 
 main {
@@ -67,20 +60,20 @@ main {
 }
 
 section {
-    padding: 40px 0;
+    padding: 42px 0;
     position: relative;
 }
 
-/* barra de navegacion */
+/* Navegación */
 .barra-arriba {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 24px 0;
-    background: rgba(5, 5, 5, 0.95);
+    background: #050505;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #333333;
     transition: all 0.3s ease;
 }
 
@@ -101,7 +94,6 @@ section {
 
 .enlaces-menu {
     display: flex;
-    gap: 32px;
 }
 
 .enlaces-menu a {
@@ -110,6 +102,11 @@ section {
     font-size: 15px;
     font-weight: 500;
     transition: color 0.3s ease;
+    margin-left: 30px;
+}
+
+.enlaces-menu a:first-child {
+    margin-left: 0;
 }
 
 .enlaces-menu a:hover,
@@ -117,29 +114,40 @@ section {
     color: #ffffff;
 }
 
-/* tarjetas */
+/* Tarjetas */
 .cuadricula-tarjetas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 32px;
+}
+
+.cuadricula-tarjetas>.tarjeta-cristal {
+    width: 48%;
+    margin-right: 4%;
+    margin-bottom: 32px;
+}
+
+.cuadricula-tarjetas>.tarjeta-cristal:nth-child(even) {
+    margin-right: 0;
 }
 
 .tarjeta-cristal {
     background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 38px;
+    border-radius: 15px;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .tarjeta-cristal:hover {
-    transform: translateY(-8px);
+    position: relative;
+    top: -8px;
     background: #1a1a1a;
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* botones */
+/* Botones */
 .boton {
     display: inline-block;
     padding: 16px 40px;
@@ -150,16 +158,27 @@ section {
     border-radius: 50px;
     font-size: 14px;
     letter-spacing: 1px;
-    margin-top: 16px;
+    margin-top: 15px;
 }
 
-/* imagenes */
+.boton-github {
+    background-color: #24292e;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+}
+
+.boton-github:hover {
+    background-color: #000;
+}
+
+/* Imágenes y diagramas */
 .caja-diagrama {
     width: 100%;
     margin: 32px 0;
     border-radius: 12px;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     overflow: hidden;
 }
 
@@ -187,7 +206,7 @@ section {
     text-align: center;
 }
 
-/* footer */
+/* Footer */
 footer {
     padding: 30px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -196,12 +215,19 @@ footer {
     font-size: 14px;
 }
 
-/* portada */
+/* Portada */
 .cuadricula-portada {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    display: flex;
     align-items: center;
+}
+
+.cuadricula-portada .texto-portada {
+    width: 48%;
+    margin-right: 4%;
+}
+
+.cuadricula-portada .imagen-portada {
+    width: 48%;
 }
 
 .imagen-portada {
@@ -213,28 +239,67 @@ footer {
     max-height: 500px;
 }
 
-
-/* clases extras para secciones */
-
+/* Clases auxiliares */
 .tarjeta-intro {
     max-width: 1100px;
     margin: 0 auto;
 }
 
 .grid-dos-columnas {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 40px;
+    display: flex;
     align-items: center;
+}
+
+.grid-dos-columnas>div:first-child {
+    width: calc(100% - 390px);
+    margin-right: 40px;
+}
+
+.grid-dos-columnas>div:last-child {
+    width: 350px;
 }
 
 .titulo-ajustado {
     margin-bottom: 16px;
 }
 
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.subtitulo-tarjeta {
+    margin-top: 24px;
+    font-size: 18px;
+}
+
 .parrafo-grande {
     font-size: 18px;
     line-height: 1.8;
+}
+
+.parrafo-espaciado {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 24px;
+}
+
+.parrafo-margen {
+    margin-top: 16px;
+}
+
+.parrafo-destacado {
+    font-size: 16px;
+    font-weight: 600;
+    color: #d1d1d1;
+    margin-bottom: 32px;
+}
+
+.parrafo-legal-small {
+    font-size: 13px;
+    color: #666;
+    margin-top: 32px;
+    line-height: 1.5;
 }
 
 .lista-intro {
@@ -245,10 +310,48 @@ footer {
     margin-left: 20px;
 }
 
-.parrafo-espaciado {
-    font-size: 18px;
+.lista-gris {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 20px;
+    margin: 0;
     line-height: 1.8;
-    margin-top: 24px;
+    color: #a0a0a0;
+}
+
+.lista-gris li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #a0a0a0;
+}
+
+.lista-enlaces {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-enlaces li {
+    margin-bottom: 12px;
+}
+
+.lista-enlaces a {
+    color: #a0a0a0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+}
+
+.lista-enlaces a:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.lista-enlaces a.desactivado {
+    color: #555;
+    border-bottom-color: transparent;
+    cursor: default;
 }
 
 .contenedor-imagen {
@@ -257,32 +360,371 @@ footer {
     align-items: center;
 }
 
-
-
-.titulo-seccion {
-    text-align: center;
-    margin-bottom: 48px;
-}
-
-.subtitulo-tarjeta {
-    margin-top: 24px;
-    font-size: 18px;
-}
-
-.lista-gris {
-    line-height: 1.8;
-    color: #a0a0a0;
-}
-
-.parrafo-margen {
-    margin-top: 16px;
-}
-
 .grid-margen {
     margin-top: 32px;
+}
+
+.margen-arriba {
+    margin-top: 40px;
 }
 
 .texto-portada-grande {
     font-size: 24px;
     max-width: 600px;
+}
+
+.parrafo-centrado {
+    text-align: center;
+    color: #a0a0a0;
+}
+
+.parrafo-centrado-offset {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 32px;
+}
+
+.parrafo-instrucciones {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.logo-bruce {
+    max-width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.contenedor-scroll-horizontal {
+    overflow-x: auto;
+}
+
+.seccion-una-columna .tarjeta-cristal {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+}
+
+/*============================================*/
+/* --- PAGINA FIRMWARE, ENTREGA 2 --- */
+/*============================================*/
+
+/* Iconos SVG */
+.icono-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    color: #e0e0e0;
+}
+
+.nota-requisito {
+    font-size: 12px;
+    color: #666;
+    margin-top: 12px;
+    font-style: italic;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+}
+
+/* Tabla comparativa */
+.tabla-comparativa {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.tabla-comparativa th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 600;
+}
+
+.tabla-comparativa td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: #a0a0a0;
+}
+
+.tabla-comparativa tr:last-child td {
+    border-bottom: none;
+}
+
+/* Sección legal */
+.borde-atencion {
+    border-left: 3px solid #8f2626;
+    background: rgba(20, 5, 5, 0.4);
+}
+
+.cabecera-atencion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.cabecera-atencion .icono-svg {
+    background: #2a1111;
+    /* Color rojizo oscuro sólido */
+    color: #cf5858;
+    margin-bottom: 0;
+    margin-right: 16px;
+}
+
+.cabecera-atencion h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #e0e0e0;
+}
+
+.contenido-legal {
+    padding-left: 56px;
+}
+
+/* --- SIMULADOR FIRMWARE --- */
+
+.simulador-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    flex-direction: column;
+    /* Para apilar elementos uno debajo del otro */
+    align-items: center;
+}
+
+.dispositivo-real {
+    position: relative;
+    display: inline-block;
+    max-width: 600px;
+}
+
+.imagen-fondo-tembed {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    filter: brightness(0.9);
+    /* Para oscurecer un poco la imagen de fondo */
+}
+
+.pantalla-bruce.pantalla-superpuesta {
+    position: absolute;
+    top: 28%;
+    left: 21.5%;
+    width: 40%;
+    height: 47%;
+    background-color: black;
+    color: #E050E0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+    border: none;
+    padding: 0;
+}
+
+.pantalla-bruce .barra-estado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 4px;
+    font-size: 10px;
+    height: 14px;
+}
+
+.barra-estado .bateria {
+    color: #00FF00;
+}
+
+.texto-negrita {
+    font-weight: bold;
+}
+
+.pantalla-bruce .menu-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-caja {
+    width: 85%;
+    border: 1px solid #E050E0;
+    border-radius: 4px;
+    padding: 4px 2px;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+}
+
+.menu-caja .opcion {
+    margin-bottom: 1px;
+}
+
+.menu-caja .opcion:last-child {
+    margin-bottom: 0;
+}
+
+.opcion {
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 2px 4px;
+    color: #E050E0;
+    display: flex;
+    align-items: center;
+    min-height: 16px;
+    border-radius: 2px;
+    cursor: default;
+    background: transparent;
+}
+
+.opcion.activa {
+    font-weight: bold;
+}
+
+.pantalla-bruce .pie-pantalla {
+    font-size: 10px;
+    text-align: center;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    color: #999;
+}
+
+.zona-click {
+    position: absolute;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+}
+
+.zona-arriba {
+    top: 32%;
+    right: 15%;
+    width: 10%;
+    height: 10%;
+}
+
+.zona-abajo {
+    top: 62%;
+    right: 15%;
+    width: 10%;
+    height: 10%;
+}
+
+.zona-centro {
+    top: 43%;
+    right: 15%;
+    width: 10%;
+    height: 14%;
+    border-radius: 10%;
+}
+
+.zona-click:hover {
+    background: rgba(69, 47, 77, 0.1);
+}
+
+.menu-carrusel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.flecha-nav {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    /* La mitad de la altura (16px / 2) */
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flecha-nav svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.flecha-nav.izq {
+    left: 6px;
+}
+
+.flecha-nav.der {
+    right: 6px;
+}
+
+.icono-grande {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.icono-grande svg {
+    width: 100%;
+    height: 100%;
+}
+
+.titulo-icono {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.pantalla-terminal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2px 4px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.terminal-header {
+    border-bottom: 1px dashed #E050E0;
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 11px;
+    padding-bottom: 2px;
+}
+
+.terminal-log {
+    height: calc(100% - 30px);
+    /* 100% menos header y márgenes */
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 9px;
+    line-height: 1.1;
+}
+
+.terminal-log>div {
+    margin-bottom: 1px;
 }
