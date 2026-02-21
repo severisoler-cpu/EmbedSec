@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmbedSec | WiFi</title>
+    <!-- ruta relativa a la carpeta css -->
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <!-- barra de navegación -->
+    <nav class="barra-arriba">
+        <div class="caja">
+            <a href="index.html" class="logo">EmbedSec</a>
+            <div class="enlaces-menu">
+                <a href="Index-y-Hardware.html">Hardware</a>
+                <a href="firmware.html">Firmware</a>
+                <a href="wiffi.html" class="activo">WiFi</a>
+                <a href="#">Bluetooth</a>
+                <a href="#">Créditos</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- encabezado de la página -->
+        <section>
+            <div class="caja">
+                <h1>WiFi Arsenal</h1>
+                <p class="parrafo-grande">
+                    El módulo WiFi del ESP32-S3 va mucho más allá de conectarse a internet.
+                    Con el firmware Bruce, el T-Embed se convierte en una herramienta de auditoría
+                    inalámbrica capaz de analizar, atacar y monitorizar redes 802.11 b/g/n.
+                </p>
+            </div>
+        </section>
+
+        <!-- por qué el ESP32-S3 puede hacer esto -->
+        <section>
+            <div class="caja">
+                <div class="tarjeta-cristal tarjeta-intro">
+                    <div class="grid-dos-columnas">
+                        <div>
+                            <h2 class="titulo-ajustado">¿Por qué el ESP32-S3 puede hacer todo esto?</h2>
+                            <p class="parrafo-grande">
+                                El chip ESP32-S3 integra un módulo WiFi 802.11 b/g/n completo que normalmente
+                                trabaja en modo "cliente" (conectarse a redes) o "punto de acceso" (crear redes).
+                                Sin embargo, el hardware también soporta un tercer modo: el <strong>modo
+                                    monitor</strong>.
+                            </p>
+                            <p class="parrafo-grande">
+                                En modo monitor, la antena del ESP32-S3 deja de filtrar paquetes y
+                                <strong>escucha todo el tráfico WiFi del aire</strong>, incluyendo paquetes de
+                                redes a las que no está conectado. Bruce activa este modo desde su menú
+                                principal y lo aprovecha para todas sus funciones WiFi.
+                            </p>
+                            <ul class="lista-gris">
+                                <li><strong>Modo cliente:</strong> Conectarse a una red (uso normal)</li>
+                                <li><strong>Modo AP:</strong> Crear una red (uso normal)</li>
+                                <li><strong>Modo monitor:</strong> Escuchar todo el tráfico del canal seleccionado</li>
+                                <li><strong>Modo inyección:</strong> Enviar tramas WiFi personalizadas al aire</li>
+                            </ul>
+                        </div>
+                        <div class="contenedor-imagen">
+                            <img src="../images/T-embed_menu_wifi.png"
+                                alt="T-Embed con módulo WiFi activo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- herramientas WiFi en Bruce -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Herramientas WiFi en Bruce</h2>
+                <p class="parrafo-centrado-offset">
+                    Estas son las opciones que aparecen en el menú <strong>WiFi</strong> del T-Embed al iniciar Bruce.
+                </p>
+
+                <div class="cuadricula-tarjetas">
+                    <!-- Escaneo -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "wifi" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                            </svg>
+                        </div>
+                        <h4>Scan APs</h4>
+                        <p>
+                            Bruce escanea todos los canales (1-13) y muestra en la pantalla TFT del T-Embed
+                            una lista de redes cercanas con su SSID, BSSID (MAC del router),
+                            canal, potencia de señal (RSSI) y tipo de cifrado (WPA2, WPA3, Abierta...).
+                        </p>
+                        <p class="nota-requisito">
+                            El encoder rotatorio permite desplazarse por la lista y seleccionar
+                            un objetivo para los ataques posteriores.
+                        </p>
+                    </div>
+
+                    <!-- Deauth -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "wifi-off" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                                <path d="M5 12.55a11 11 0 0 1 5.17-2.39"></path>
+                                <path d="M10.71 5.05A16 16 0 0 1 22.56 9"></path>
+                                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                            </svg>
+                        </div>
+                        <h4>Deauth Attack</h4>
+                        <p>
+                            Tras seleccionar una red en el escáner, Bruce puede enviar tramas de
+                            desautenticación falsas desde la antena del ESP32-S3.
+                            El router y sus clientes las reciben como si fueran legítimas y se desconectan.
+                        </p>
+                        <p class="nota-requisito">
+                            Funciona porque en WPA2 las tramas de gestión no van firmadas.
+                            WPA3 con PMF activo es inmune a este ataque.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-tarjetas grid-margen">
+                    <!-- Beacon Spam -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "radio" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <path
+                                    d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>Beacon Spam</h4>
+                        <p>
+                            El ESP32-S3 emite cientos de tramas Beacon por segundo, cada una con un
+                            SSID diferente. El T-Embed lo hace todo desde su firmware sin necesitar
+                            ningún hardware extra: solo su antena integrada.
+                        </p>
+                        <p>
+                            Bruce permite elegir entre listas de SSIDs predefinidas o introducir
+                            nombres propios desde el menú del dispositivo usando el encoder rotatorio.
+                        </p>
+                    </div>
+
+                    <!-- Captura Handshake -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "download" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                        <h4>Captura de Handshake</h4>
+                        <p>
+                            En modo monitor, Bruce escucha el canal del objetivo esperando que un
+                            cliente se conecte. Si combinas esta función con un Deauth, fuerzas
+                            la reconexión del cliente para capturar el handshake WPA2 de 4 vías
+                            directamente en la tarjeta microSD del T-Embed (formato .pcap).
+                        </p>
+                        <p class="nota-requisito">
+                            El archivo .pcap se puede analizar después en un PC con Aircrack-ng o Hashcat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- cómo funciona el deauth por dentro -->
+        <section>
+            <div class="caja">
+                <h2>¿Cómo ejecuta Bruce el ataque Deauth?</h2>
+                <p>
+                    Para entender qué hace el T-Embed por dentro cuando seleccionas "Deauth Attack"
+                    en Bruce, hay que conocer brevemente la estructura de una trama WiFi.
+                </p>
+
+                <div class="cuadricula-tarjetas seccion-una-columna">
+                    <div class="tarjeta-cristal">
+                        <h3>Las Management Frames (Tramas de Gestión)</h3>
+                        <p>
+                            Toda red WiFi intercambia tres tipos de paquetes: de <strong>datos</strong>
+                            (el contenido real), de <strong>control</strong> (coordinación del canal) y de
+                            <strong>gestión</strong>. Estas últimas son las que mantienen la conexión viva:
+                            anuncios de red (Beacon), solicitudes de unión (Association) y órdenes de
+                            desconexión (Deauthentication).
+                        </p>
+                        <p>
+                            El problema con WPA2 es que estas tramas de gestión <strong>no van firmadas
+                                ni cifradas</strong>. Cualquier dispositivo puede fabricar una trama Deauth
+                            falsa poniendo la MAC del router como remitente, y el cliente la obedecerá
+                            sin preguntar.
+                        </p>
+
+                        <h4 class="subtitulo-tarjeta">Lo que hace el ESP32-S3 paso a paso:</h4>
+                        <ul class="lista-gris">
+                            <li>Bruce activa el modo monitor en el ESP32-S3 y fija el canal de la red objetivo.</li>
+                            <li>Construye una trama Deauthentication con la MAC del router como origen
+                                y la MAC del cliente (o la MAC de broadcast FF:FF:FF:FF:FF:FF) como destino.</li>
+                            <li>La inyecta al aire mediante la antena integrada del T-Embed.</li>
+                            <li>Repite el proceso en bucle hasta que cancelas desde el encoder.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- diagrama del ataque deauth -->
+                <div class="caja-diagrama">
+                    <div class="espacio-diagrama">
+                        <div class="diagrama-contenedor-flex">
+
+                            <!-- caja T-Embed -->
+                            <div class="diagrama-caja">
+                                <p class="diagrama-titulo">T-Embed</p>
+                                <p class="diagrama-subtitulo">(Bruce)</p>
+                                <p class="diagrama-etiqueta">Atacante</p>
+                            </div>
+
+                            <!-- flecha con bolita animada -->
+                            <div id="flecha-deauth" class="diagrama-flecha">
+                                <!-- linea roja discontinua -->
+                                <div class="diagrama-linea"></div>
+                                <!-- punta de la flecha -->
+                                <span class="diagrama-punta">▶</span>
+                                <!-- bolita que se mueve con javascript -->
+                                <div id="paquete-deauth" class="diagrama-paquete"></div>
+                                <!-- texto explicativo encima -->
+                                <p class="diagrama-texto-flecha">Deauth falso (MAC del Router)</p>
+                            </div>
+
+                            <!-- caja Cliente + router debajo conectados con linea -->
+                            <div class="diagrama-columna">
+
+                                <!-- caja Cliente -->
+                                <div class="diagrama-caja">
+                                    <p class="diagrama-titulo">Cliente</p>
+                                    <p class="diagrama-subtitulo">(Móvil / PC)</p>
+                                    <p class="diagrama-etiqueta">Víctima</p>
+                                </div>
+
+                                <!-- linea vertical discontinua hacia el router -->
+                                <div class="diagrama-linea-vertical"></div>
+
+                                <!-- icono y texto del Router -->
+                                <div class="diagrama-texto-centrado">
+                                    <!-- icono "server" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                                    </svg>
+                                    <p class="diagrama-titulo-router">Router</p>
+                                    <p class="diagrama-etiqueta">(AP)</p>
+                                    <p class="diagrama-etiqueta-gris">Conexión real</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="pie-diagrama">
+                        El T-Embed envía tramas Deauth falsas haciéndose pasar por el router.
+                        El cliente las recibe como legítimas y se desconecta de la red.
+                    </div>
+                </div>
+        </section>
+
+        <!-- handshake y captura -->
+        <section>
+            <div class="caja">
+                <h2>El Handshake WPA2 y por qué le importa a Bruce</h2>
+                <p>
+                    Cuando el cliente se reconecta tras un Deauth, el router y el cliente intercambian
+                    un "apretón de manos" de 4 mensajes para verificar que ambos conocen la contraseña.
+                    Bruce, en modo monitor, captura esos 4 mensajes y los guarda en la microSD.
+                </p>
+
+                <div class="cuadricula-tarjetas">
+                    <div class="tarjeta-cristal">
+                        <h4>Mensaje 1 y 2 — La negociación</h4>
+                        <p>
+                            El router envía un número aleatorio (ANonce). El cliente responde con
+                            el suyo (SNonce) junto con un código de integridad (MIC) calculado
+                            usando la contraseña de la red. <strong>Bruce captura aquí el MIC</strong>,
+                            que es la "huella" de la contraseña.
+                        </p>
+                    </div>
+                    <div class="tarjeta-cristal">
+                        <h4>Mensajes 3 y 4 — La confirmación</h4>
+                        <p>
+                            El router verifica que el MIC es correcto (el cliente sabe la contraseña),
+                            envía la clave de grupo cifrada y el cliente confirma. La conexión queda
+                            establecida. Bruce ya tiene lo que necesita: el handshake completo en .pcap.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-cristal margen-arriba">
+                    <h3>¿Qué se hace con ese archivo .pcap?</h3>
+                    <p>
+                        El handshake capturado por el T-Embed se pasa a un PC. Herramientas como
+                        <strong>Aircrack-ng</strong> o <strong>Hashcat</strong> intentan adivinar la
+                        contraseña original comparando el MIC del handshake con los MICs calculados
+                        para cada palabra de un diccionario (ej. rockyou.txt). Si la contraseña
+                        está en el diccionario, la encuentran.
+                    </p>
+                    <ul class="lista-gris">
+                        <li>Contraseña débil ("12345678"): encontrada en segundos.</li>
+                        <li>Contraseña de diccionario ("micasa123"): encontrada en minutos u horas.</li>
+                        <li>Contraseña aleatoria larga ("Kd#9mZp!xL3"): prácticamente imposible.</li>
+                    </ul>
+                    <p class="nota-requisito">
+                        El crackeo se hace offline en el PC, no en el T-Embed. El ESP32-S3 no tiene
+                        potencia de cómputo suficiente para eso.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- tabla resumen -->
+        <section>
+            <div class="caja">
+                <h2>Resumen de funciones WiFi del T-Embed con Bruce</h2>
+
+                <div class="tarjeta-cristal">
+                    <div class="contenedor-scroll-horizontal">
+                        <table class="tabla-comparativa">
+                            <thead>
+                                <tr>
+                                    <th>Función en Bruce</th>
+                                    <th>Qué hace el T-Embed</th>
+                                    <th>Hardware necesario</th>
+                                    <th>Contra qué funciona</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Scan APs</td>
+                                    <td>Lista redes cercanas con canal, MAC y cifrado</td>
+                                    <td>Solo el T-Embed (antena integrada)</td>
+                                    <td>Todas las redes WiFi</td>
+                                </tr>
+                                <tr>
+                                    <td>Deauth Attack</td>
+                                    <td>Desconecta clientes de la red objetivo</td>
+                                    <td>Solo el T-Embed</td>
+                                    <td>Redes WPA2 sin PMF</td>
+                                </tr>
+                                <tr>
+                                    <td>Beacon Spam</td>
+                                    <td>Emite cientos de SSIDs falsos por segundo</td>
+                                    <td>Solo el T-Embed</td>
+                                    <td>Cualquier dispositivo con WiFi</td>
+                                </tr>
+                                <tr>
+                                    <td>Captura Handshake</td>
+                                    <td>Guarda el handshake WPA2 en microSD (.pcap)</td>
+                                    <td>T-Embed + tarjeta microSD</td>
+                                    <td>Redes WPA2 (no WPA3)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- aviso legal -->
+        <section>
+            <div class="caja">
+                <div class="tarjeta-cristal borde-atencion">
+                    <div class="cabecera-atencion">
+                        <div class="icono-svg">
+                            <!-- Icono "alert-triangle" copiado de https://feathericons.com/ -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h2>Aviso Legal y Uso Responsable</h2>
+                    </div>
+
+                    <div class="contenido-legal">
+                        <p class="parrafo-destacado">
+                            El contenido de esta guía tiene ÚNICAMENTE fines educativos y de investigación en seguridad.
+                        </p>
+
+                        <div class="grid-dos-columnas">
+                            <div>
+                                <h4>Prohibido</h4>
+                                <ul class="lista-gris">
+                                    <li>Usar el T-Embed para atacar redes ajenas sin permiso</li>
+                                    <li>Ejecutar Deauth contra redes que no sean tuyas</li>
+                                    <li>Capturar handshakes de terceros</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Permitido</h4>
+                                <ul class="lista-gris">
+                                    <li>Auditar tu propia red doméstica</li>
+                                    <li>Laboratorio con redes propias y aisladas</li>
+                                    <li>Pentesting con contrato de autorización firmado</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="parrafo-legal-small">
+                            <strong>Legislación:</strong> El acceso no autorizado a sistemas informáticos es delito
+                            (Art. 197 CP). El desconocimiento de la ley NO exime de responsabilidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="caja">
+            <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
+        </div>
+    </footer>
+    <!-- animacion de la bolita del diagrama de deauth -->
+    <script src="../js/animacion_DeauthWiffi.js"></script>
+</body>
+
+</html>
