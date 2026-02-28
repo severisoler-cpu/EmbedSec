@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmbedSec | Créditos</title>
+    <!-- ruta relativa a la carpeta css -->
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <!-- barra de navegación -->
+    <nav class="barra-arriba">
+        <div class="caja">
+            <a href="index.html" class="logo">EmbedSec</a>
+            <div class="enlaces-menu">
+                <a href="index.html">Hardware</a>
+                <a href="firmware.html">Firmware</a>
+                <a href="wiffi.html">WiFi</a>
+                <a href="bluetooth.html">Bluetooth</a>
+                <a href="creditos.html" class="activo">Créditos</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- encabezado de la página -->
+        <section>
+            <div class="caja">
+                <h1>Créditos</h1>
+                <p class="parrafo-grande">
+                    Este proyecto ha sido desarrollado como trabajo práctico del módulo de
+                    Servicios en Red del ciclo formativo de Sistemas Microinformáticos y Redes (SMX).
+                </p>
+            </div>
+        </section>
+
+        <!-- tarjeta del creador -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Sobre el proyecto</h2>
+
+                <div class="cuadricula-tarjetas seccion-una-columna">
+                    <div class="tarjeta-cristal tarjeta-autor">
+                        <div class="autor-texto">
+                            <h4>Autor</h4>
+                            <p>Proyecto realizado por Marc Severí, de 2º de SMX, como trabajo de investigación
+                                sobre seguridad inalámbrica y herramientas de auditoría con hardware embebido.</p>
+
+                            <h4 class="subtitulo-tarjeta margen-arriba-20">Tecnologías usadas</h4>
+                            <ul class="lista-gris">
+                                <li><strong>HTML5 y CSS3</strong> — Estructura y diseño del sitio</li>
+                                <li><strong>JavaScript</strong> — Animaciones y simulador de firmware</li>
+                                <li><strong>LilyGO T-Embed CC1101</strong> — Hardware de auditoría</li>
+                                <li><strong>Firmware Bruce</strong> — Software del dispositivo</li>
+                            </ul>
+                        </div>
+                        <div class="autor-foto-contenedor">
+                            <img src="../images/autor.jpg" alt="Foto de Marc Severí" class="foto-autor">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iconos de herramientas -->
+                <div class="cuadricula-tarjetas grid-margen">
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- icono "code" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h4>Código fuente</h4>
+                        <p>Escrito a mano en HTML, CSS y JavaScript sin usar frameworks ni plantillas de terceros.
+                            Los iconos SVG son de Feather Icons (feathericons.com).</p>
+                    </div>
+
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- icono "book" copiado de https://feathericons.com/-->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <h4>Fuentes consultadas</h4>
+                        <p>Documentación oficial de Espressif (ESP32-S3), repositorio de Bruce en GitHub,
+                            y material del módulo de redes del ciclo SMX.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- formulario de sugerencias -->
+        <section>
+            <div class="caja">
+                <h2>Formulario de mejora</h2>
+                <p>Si tienes alguna sugerencia, corrección o quieres aportar algo al proyecto, puedes escribirlo aquí.
+                </p>
+
+                <div class="tarjeta-cristal">
+                    <!-- el formulario no apunta a ningún servidor real, es solo visual -->
+                    <form id="formulario-mejora">
+
+                        <div class="campo-formulario">
+                            <label for="nombre" class="etiqueta-formulario">
+                                Nombre
+                            </label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                                class="entrada-formulario" required>
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="email" class="etiqueta-formulario">
+                                Correo electrónico (opcional)
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com"
+                                class="entrada-formulario">
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="tipo" class="etiqueta-formulario">
+                                Tipo de sugerencia
+                            </label>
+                            <select id="tipo" name="tipo" class="entrada-formulario">
+                                <option value="error">Corrección de error</option>
+                                <option value="contenido">Añadir contenido</option>
+                                <option value="diseno">Mejora de diseño</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-mensaje">
+                            <label for="mensaje" class="etiqueta-formulario">
+                                Mensaje
+                            </label>
+                            <textarea id="mensaje" name="mensaje" rows="5"
+                                placeholder="Escribe aquí tu sugerencia o comentario..."
+                                class="entrada-formulario input-area-mensaje" required></textarea>
+                        </div>
+
+                        <button type="submit" class="boton-enviar">
+                            Enviar sugerencia
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="caja">
+            <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
+        </div>
+    </footer>
+
+    <!-- script del formulario - aprendido de un tutorial de youtube (como es muy corto, no lo he puesto en un archivo aparte)-->
+    <script>
+        var formulario = document.getElementById('formulario-mejora');
+
+        formulario.addEventListener('submit', function (evento) {
+            // evitar que el formulario se envíe de verdad
+            evento.preventDefault();
+
+            // mostrar ventana de confirmación
+            alert('Mensaje enviado con éxito');
+
+            // limpiar el formulario después de enviar
+            formulario.reset();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmbedSec | Bluetooth</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <!-- barra de navegación -->
+    <nav class="barra-arriba">
+        <div class="caja">
+            <a href="index.html" class="logo">EmbedSec</a>
+            <div class="enlaces-menu">
+                <a href="index.html">Hardware</a>
+                <a href="firmware.html">Firmware</a>
+                <a href="wiffi.html">WiFi</a>
+                <a href="bluetooth.html" class="activo">Bluetooth</a>
+                <a href="creditos.html">Créditos</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- encabezado de la página -->
+        <section>
+            <div class="caja">
+                <h1>Bluetooth Testing</h1>
+                <p class="parrafo-grande">
+                    Desde wearables hasta teclados y sistemas de manos libres.
+                    El T-Embed permite explorar tanto el Bluetooth clásico como el de bajo consumo (BLE),
+                    identificando dispositivos e interactuando con sus servicios.
+                </p>
+            </div>
+        </section>
+
+        <!-- Tarjeta Classic vs BLE -->
+        <section>
+            <div class="caja">
+                <div class="tarjeta-cristal tarjeta-intro">
+                    <div class="grid-dos-columnas">
+                        <div>
+                            <h2 class="titulo-ajustado">Bluetooth Classic vs BLE</h2>
+                            <p class="parrafo-grande">
+                                Aunque comparten el nombre, son tecnologías muy distintas bajo el capó. El ESP32-S3
+                                del T-Embed soporta ambas, lo que nos permite realizar pruebas en un amplio abanico
+                                de dispositivos.
+                            </p>
+                            <ul class="lista-gris">
+                                <li><strong>Bluetooth Classic (BR/EDR):</strong> Diseñado para transmisiones continuas
+                                    de datos.
+                                    Auriculares, transmisión de audio y transferencia de archivos. Consume mucha
+                                    energía.</li>
+                                <br>
+                                <li><strong>Bluetooth Low Energy (BLE):</strong> Optimizado para dispositivos que
+                                    funcionan
+                                    con batería durante meses. Sensores, relojes inteligentes y balizas. Funciona
+                                    mediante
+                                    "anuncios" (Advertising) y servicios GATT.</li>
+                            </ul>
+                        </div>
+                        <div class="contenedor-imagen">
+                            <img src="../images/Logo_bluetooth.png" alt="Logo Bluetooth">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Técnicas de Auditoría Bluetooth en Bruce -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Técnicas de Auditoría con Bruce</h2>
+
+                <div class="cuadricula-tarjetas">
+                    <!-- BLE Spam -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "bluetooth" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
+                            </svg>
+                        </div>
+                        <h4>BLE Spam (Sour Apple)</h4>
+                        <p>
+                            Este ataque simula paquetes de emparejamiento legítimos de Apple (o Android).
+                            El T-Embed emite anuncios BLE masivos que hacen que los dispositivos cercanos
+                            muestren pop-ups constantes de emparejamiento.
+                        </p>
+                        <p class="nota-requisito">
+                            Es una técnica de denegación de servicio a nivel de interfaz de usuario.
+                            Muy efectivo en espacios públicos para demostrar la inseguridad de los protocolos de
+                            proximidad.
+                        </p>
+                    </div>
+
+                    <!-- BLE Scanner -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "search" copiado de https://feathericons.com/-->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <h4>BLE Scanner / Sniffing</h4>
+                        <p>
+                            Bruce permite capturar los paquetes de anuncio que los dispositivos BLE emiten
+                            constantemente para ser encontrados. El T-Embed muestra el nombre, la MAC
+                            y los servicios que ofrece cada dispositivo en tiempo real.
+                        </p>
+                        <p class="nota-requisito">
+                            Muchas cerraduras inteligentes y sensores IoT "gritan" su presencia y fabricante
+                            mediante estos paquetes sin necesidad de conexión.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-tarjetas grid-margen">
+                    <!-- Spoofing -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "shield" copiado de https://feathericons.com/-->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h4>Identity Spoofing</h4>
+                        <p>
+                            El T-Embed puede clonar la identidad de un dispositivo Bluetooth conocido
+                            Cambiando su nombre y dirección MAC. Se utiliza para engañar a usuarios o a otros
+                            dispositivos que confían en una ID específica.
+                        </p>
+                    </div>
+
+                    <!-- Proximity Monitoring -->
+                    <div class="tarjeta-cristal">
+                        <div class="icono-svg">
+                            <!-- Icono "activity" copiado de https://feathericons.com/-->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h4>Proximity Monitoring</h4>
+                        <p>
+                            Monitoriza la potencia de la señal (RSSI) de un dispositivo específico.
+                            Útil para rastrear la ubicación física de una persona o dispositivo
+                            (relojes inteligentes, trackers) basándose en la cercanía al T-Embed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla Comparativa WiFi vs BLE -->
+        <section>
+            <div class="caja">
+                <h2>WiFi vs Bluetooth LE: Comparativa Técnica</h2>
+                <div class="tarjeta-cristal">
+                    <table class="tabla-comparativa">
+                        <thead>
+                             <tr>
+                                 <th>Característica</th>
+                                <th>WiFi (802.11)</th>
+                                <th>Bluetooth LE (BLE)</th>
+                                 <th>Notas para Pentesting</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                               <tr>
+                                   <td><strong>Frecuencia</strong></td>
+                                   <td>2.4 GHz / 5 GHz</td>
+                                   <td>2.4 GHz</td>
+                                   <td>Ambos comparten espectro y pueden interferirse.</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Alcance</strong></td>
+                                   <td>Hasta 100m</td>
+                                   <td>Hasta 10-20m</td>
+                                   <td>Bluetooth requiere mayor cercanía física del T-Embed.</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Consumo</strong></td>
+                                   <td>Alto</td>
+                                   <td>Muy bajo</td>
+                                   <td>El modo BLE agota menos la batería del T-Embed.</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Topología</strong></td>
+                                   <td>Estrella (Cliente-AP)</td>
+                                   <td>Maestro/Esclavo o Malla</td>
+                                   <td>BLE es más dinámico en sus conexiones rápidas.</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Cifrado</strong></td>
+                                   <td>WPA2 / WPA3</td>
+                                   <td>AES-128 (Opcional)</td>
+                                   <td>Muchos dispositivos BLE transmiten datos sin cifrar.</td>
+                               </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curiosidades BLE -->
+        <section>
+            <div class="caja">
+                <h2 class="titulo-seccion">Concepto: GATT y Características</h2>
+                <p>
+                    A diferencia del WiFi, donde intercambiamos archivos o streams, en BLE
+                    se utiliza el protocolo <strong>GATT (Generic Attribute Profile)</strong>.
+                    Es como una base de datos de "etiquetas" que puedes leer o escribir.
+                </p>
+                <div class="cuadricula-tarjetas seccion-una-columna">
+                    <div class="tarjeta-cristal">
+                        <p>
+                            Un dispositivo (Servidor GATT) ofrece <strong>Servicios</strong> (ej. Monitor cardíaco)
+                            y dentro de esos servicios hay <strong>Características</strong> (ej. Valor de Pulsaciones).
+                        </p>
+                        <p>
+                            Con el T-Embed y Bruce podemos listar estos servicios e intentar leer sus valores.
+                            Si el desarrollador no implementó seguridad, cualquier dispositivo puede leer datos
+                            sensibles o incluso escribir configuraciones maliciosas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- aviso legal -->
+        <section>
+            <div class="caja">
+                <div class="tarjeta-cristal borde-atencion">
+                    <div class="cabecera-atencion">
+                        <div class="icono-svg">
+                            <!-- Icono "alert-triangle" copiado de https://feathericons.com/, una página que proporciona iconos svg listos -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h2>Aviso sobre Seguridad Bluetooth</h2>
+                    </div>
+                    <div class="contenido-legal">
+                        <p>
+                            Interactuar con dispositivos de terceros mediante Bluetooth puede ser invasivo.
+                            Capturar datos de salud o deportivos de personas sin su permiso es una violación
+                            grave de la privacidad. Usa estas herramientas solo en tus propios dispositivos
+                            o con consentimiento explícito.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="caja">
+            <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
