@@ -979,10 +979,6 @@ footer {
     margin-bottom: 24px;
 }
 
-.input-area-mensaje {
-    resize: vertical;
-}
-
 .boton-enviar {
     background: #cf5858;
     color: #fff;
