@@ -842,3 +842,158 @@ footer {
     margin: 6px 0 0 0;
     font-size: 13px;
 }
+
+/*================================================*/
+/* --- PAGINA BLUETOOTH y CREDITOS, ENTREGA 4 --- */
+/*================================================*/
+
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-una-columna .tarjeta-autor {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.autor-texto {
+    width: 60%;
+}
+
+.autor-foto-contenedor {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-autor {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid #222222;
+}
+
+.nota-requisito {
+    font-size: 12px;
+    color: #666;
+    margin-top: 12px;
+    font-style: italic;
+    border-top: 1px solid #222222;
+    padding-top: 8px;
+}
+
+/* Tabla comparativa */
+.tabla-comparativa {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.tabla-comparativa th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #222222;
+    color: #fff;
+    font-weight: 600;
+}
+
+.tabla-comparativa td {
+    padding: 12px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #a0a0a0;
+}
+
+.tabla-comparativa tr:last-child td {
+    border-bottom: none;
+}
+
+/* Sección legal */
+.borde-atencion {
+    border-left: 3px solid #8f2626;
+    background: #1a0a0a;
+}
+
+.cabecera-atencion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.cabecera-atencion .icono-svg {
+    background: #2a1111;
+    color: #cf5858;
+    margin-bottom: 0;
+    margin-right: 16px;
+}
+
+.cabecera-atencion h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #e0e0e0;
+}
+
+.contenido-legal {
+    padding-left: 56px;
+}
+
+/* --- CLASES PARA EL FORMULARIO DE CREDITOS --- */
+.margen-arriba-20 {
+    margin-top: 20px;
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.etiqueta-formulario {
+    display: block;
+    color: #a0a0a0;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.entrada-formulario {
+    width: 100%;
+    padding: 10px 14px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.entrada-formulario:focus {
+    border-color: #cf5858;
+    outline: none;
+}
+
+.campo-mensaje {
+    margin-bottom: 24px;
+}
+
+.boton-enviar {
+    background: #cf5858;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-enviar:hover {
+    background: #b54949;
+}
+
+.boton-enviar:active {
+    transform: scale(0.98);
+}
