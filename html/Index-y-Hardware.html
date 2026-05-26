@@ -18,6 +18,7 @@
                 <a href="wiffi.html">WiFi</a>
                 <a href="bluetooth.html">Bluetooth</a>
                 <a href="creditos.html">Créditos</a>
+                <a href="quiz.html">Quiz</a>
             </div>
         </div>
     </nav>
@@ -233,6 +234,21 @@
             <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
         </div>
     </footer>
+    <!-- animacion de escritura del titulo (aprendida con un tutorial de youtube) -->
+    <script>
+        var titulo = document.querySelector('h1');
+        var textoOriginal = titulo.textContent;
+        titulo.textContent = '';
+        var i = 0;
+
+        var tipear = setInterval(function () {
+            titulo.textContent += textoOriginal[i];
+            i++;
+            if (i >= textoOriginal.length) {
+                clearInterval(tipear);
+            }
+        }, 40);
+    </script>
 </body>
 
 </html>

@@ -997,3 +997,78 @@ footer {
 .boton-enviar:active {
     transform: scale(0.98);
 }
+
+/*================================================*/
+/* --- PAGINA QUIZ, ENTREGA EXTRA --- */
+/*================================================*/
+
+.texto-pregunta-quiz {
+    font-size: 20px;
+    color: #e0e0e0;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.opciones-quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.opcion-quiz {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: #a0a0a0;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.opcion-quiz:hover {
+    border-color: #cf5858;
+    color: #fff;
+}
+
+/* color verde cuando la opción es correcta */
+.opcion-correcta {
+    background: #0a2a0a;
+    border-color: #4caf50 !important; /* el !important se usa para sobreescribir el borde por defecto, ya lo aprendí en entregas anteriores */
+    color: #4caf50 !important;
+}
+
+/* color rojo cuando la opción es incorrecta */
+.opcion-incorrecta {
+    background: #2a0a0a;
+    border-color: #cf5858 !important;
+    color: #cf5858 !important;
+}
+
+.feedback-quiz {
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.feedback-correcto {
+    background: #0a2a0a;
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.feedback-incorrecto {
+    background: #2a0a0a;
+    color: #cf5858;
+    border: 1px solid #8f2626;
+}
+
+.texto-resultado-quiz {
+    font-size: 24px;
+    color: #e0e0e0;
+    font-weight: bold;
+    margin-bottom: 16px;
+}

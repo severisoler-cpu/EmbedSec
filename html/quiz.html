@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EmbedSec | Quiz</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+    <!-- barra de navegación -->
+    <nav class="barra-arriba">
+        <div class="caja">
+            <a href="index.html" class="logo">EmbedSec</a>
+            <div class="enlaces-menu">
+                <a href="index.html">Hardware</a>
+                <a href="firmware.html">Firmware</a>
+                <a href="wiffi.html">WiFi</a>
+                <a href="bluetooth.html">Bluetooth</a>
+                <a href="creditos.html">Créditos</a>
+                <a href="quiz.html" class="activo">Quiz</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- encabezado de la página -->
+        <section>
+            <div class="caja">
+                <h1>Quiz de Seguridad Inalámbrica</h1>
+                <p class="parrafo-grande">
+                    Pon a prueba lo que has aprendido sobre WiFi, Bluetooth y el T-Embed.
+                </p>
+            </div>
+        </section>
+
+        <!-- contenedor del quiz -->
+        <section>
+            <div class="caja">
+
+                <!-- texto de progreso: "Pregunta X de 5" -->
+                <p id="texto-progreso" class="parrafo-centrado">Pregunta 1 de 5</p>
+
+                <!-- tarjeta donde van las preguntas -->
+                <div class="tarjeta-cristal" id="contenedor-quiz">
+                    <p id="texto-pregunta" class="texto-pregunta-quiz"></p>
+                    <!-- aquí el js mete los botones de respuesta -->
+                    <div id="opciones-quiz" class="opciones-quiz"></div>
+                    <!-- feedback de si has acertado o no -->
+                    <p id="feedback-quiz" class="feedback-quiz" style="display:none;"></p>
+                </div>
+
+                <!-- pantalla de resultado final (oculta hasta que se acaba el quiz) -->
+                <div class="tarjeta-cristal" id="resultado-final" style="display:none; text-align:center;">
+                    <p id="texto-resultado" class="texto-resultado-quiz"></p>
+                    <button onclick="reiniciarQuiz()" class="boton-enviar">
+                        Intentar de nuevo
+                    </button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="caja">
+            <p>&copy; Proyecto EmbedSec 2026. Solo para fines educativos.</p>
+        </div>
+    </footer>
+
+    <!-- script del quiz - basado en tutoriales de youtube -->
+    <script>
+
+        // lista de preguntas con sus opciones y el índice de la correcta
+        var preguntas = [
+            {
+                pregunta: "¿Qué significa BLE?",
+                opciones: [
+                    "Basic Lan Ethernet",
+                    "Bluetooth Low Energy",
+                    "Broadband Link Extender",
+                    "Binary Logic Encryption"
+                ],
+                correcta: 1
+            },
+            {
+                pregunta: "¿Qué frecuencia comparten el WiFi 2.4GHz y el Bluetooth?",
+                opciones: ["5 GHz", "900 MHz", "2.4 GHz", "60 GHz"],
+                correcta: 2
+            },
+            {
+                pregunta: "¿Qué hace un ataque de Deautenticación (Deauth)?",
+                opciones: [
+                    "Cifra el tráfico de red",
+                    "Aumenta la potencia del router",
+                    "Desconecta clientes de su red WiFi",
+                    "Cambia la contraseña del router"
+                ],
+                correcta: 2
+            },
+            {
+                pregunta: "¿Qué protocolo usa el BLE para organizar sus datos y servicios?",
+                opciones: ["HTTP", "FTP", "TCP/IP", "GATT"],
+                correcta: 3
+            },
+            {
+                pregunta: "¿Qué hardware usa este proyecto para las auditorías?",
+                opciones: [
+                    "Raspberry Pi 4",
+                    "LilyGO T-Embed CC1101",
+                    "Arduino Uno",
+                    "ESP8266 NodeMCU"
+                ],
+                correcta: 1
+            }
+        ];
+
+        var preguntaActual = 0;
+        var puntuacion = 0;
+        var respondida = false; // para que no puedan clicar dos veces seguidas
+
+        function mostrarPregunta() {
+            respondida = false;
+
+            // actualizamos el contador de progreso
+            document.getElementById('texto-progreso').textContent =
+                'Pregunta ' + (preguntaActual + 1) + ' de ' + preguntas.length;
+
+            // ponemos el texto de la pregunta actual
+            var p = preguntas[preguntaActual];
+            document.getElementById('texto-pregunta').textContent = p.pregunta;
+
+            // generamos los botones de cada opción
+            var contenedor = document.getElementById('opciones-quiz');
+            contenedor.innerHTML = ''; // limpiamos los botones anteriores
+
+            for (var i = 0; i < p.opciones.length; i++) {
+                var boton = document.createElement('button');
+                boton.textContent = p.opciones[i];
+                boton.className = 'opcion-quiz';
+                boton.setAttribute('data-indice', i);
+                boton.onclick = comprobarRespuesta;
+                contenedor.appendChild(boton);
+            }
+
+            // ocultamos el feedback de la pregunta anterior
+            var feedback = document.getElementById('feedback-quiz');
+            feedback.style.display = 'none';
+            feedback.textContent = '';
+        }
+
+        function comprobarRespuesta(event) {
+            if (respondida) return; // si ya respondió, ignoramos el clic
+            respondida = true;
+
+            var indiceElegido = parseInt(event.target.getAttribute('data-indice'));
+            var correcta = preguntas[preguntaActual].correcta;
+            var feedback = document.getElementById('feedback-quiz');
+            var botones = document.querySelectorAll('.opcion-quiz');
+
+            // marcamos el botón correcto en verde siempre
+            botones[correcta].classList.add('opcion-correcta');
+
+            if (indiceElegido === correcta) {
+                puntuacion++;
+                feedback.textContent = '✓ Correcto';
+                feedback.className = 'feedback-quiz feedback-correcto';
+            } else {
+                // marcamos la opción elegida en rojo
+                botones[indiceElegido].classList.add('opcion-incorrecta');
+                feedback.textContent = '✗ Incorrecto. La respuesta era: ' + preguntas[preguntaActual].opciones[correcta];
+                feedback.className = 'feedback-quiz feedback-incorrecto';
+            }
+
+            feedback.style.display = 'block';
+
+            // esperamos 1.8 segundos y pasamos a la siguiente pregunta
+            setTimeout(function () {
+                preguntaActual++;
+                if (preguntaActual < preguntas.length) {
+                    mostrarPregunta();
+                } else {
+                    mostrarResultado();
+                }
+            }, 1800);
+        }
+
+        function mostrarResultado() {
+            // ocultamos la tarjeta de preguntas
+            document.getElementById('contenedor-quiz').style.display = 'none';
+            document.getElementById('texto-progreso').style.display = 'none';
+
+            // mostramos la tarjeta de resultado
+            document.getElementById('resultado-final').style.display = 'block';
+            document.getElementById('texto-resultado').textContent =
+                'Has conseguido ' + puntuacion + ' de ' + preguntas.length + ' respuestas correctas.';
+        }
+
+        function reiniciarQuiz() {
+            // reseteamos las variables
+            preguntaActual = 0;
+            puntuacion = 0;
+
+            // volvemos a mostrar la tarjeta de preguntas
+            document.getElementById('resultado-final').style.display = 'none';
+            document.getElementById('contenedor-quiz').style.display = 'block';
+            document.getElementById('texto-progreso').style.display = 'block';
+
+            mostrarPregunta();
+        }
+
+        // para arrancar el quiz al cargar la página
+        mostrarPregunta();
+
+    </script>
+</body>
+
+</html>
